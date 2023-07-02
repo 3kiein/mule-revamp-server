@@ -1,7 +1,7 @@
 const { v4: uuidv4 } = require('uuid')
 
 
-module.exports.notices = [
+module.exports.noticeItems = [
     {
         id: 30,
         createdAt: "2023-06-27T10:50:00.000Z",
