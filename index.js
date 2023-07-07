@@ -1,21 +1,24 @@
-const express = require('express');
+const express = require("express");
 const app = express();
 const port = 3001;
 const morgan = require("morgan");
 const cors = require("cors");
+const cookieParser = require("cookie-parser");
 
 app.use(morgan("tiny"));
-app.use(cors());
 app.use(express.json());
+app.use(cookieParser());
 
-const Router = require("./router/Router")
-app.use('/', Router)
+const corsOptions = {
+  origin: "http://localhost:3000",
+  methods: ["GET", "POST", "OPTIONS"],
+  crediential: true,
+};
+app.use(cors(corsOptions));
 
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-  })
+const Router = require("./router/Router");
+app.use("/", Router);
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
-
+  console.log(`Example app listening on port ${port}`);
+});
