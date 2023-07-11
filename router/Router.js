@@ -42,7 +42,7 @@ router.post("/login", (req, res) => {
   };
 
   if (userInfo.id === undefined) {
-    res.status(401).send("Not Authorized");
+    res.status(401).send("로그인에 실패했습니다.");
   } else if (userInfo) {
     cookiesOption.maxAge = 1000 * 60 * 30;
     cookiesOption.expires = new Date(Date.now() + 1000 * 60 * 30);
