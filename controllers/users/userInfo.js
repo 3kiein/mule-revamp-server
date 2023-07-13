@@ -4,8 +4,9 @@ module.exports = (req, res) => {
 	const { userId, userPassword } = req.body;
 
 
-	const cookieId = req.cookies.cookieId;
-	console.log(req.cookies.cookieId)
+    const cookieId = req.cookies.cookieId;
+    
+	console.log(cookieId)
 
 	const userInfo = {
 		...userData.filter((user) => user.userId === cookieId)[0],
