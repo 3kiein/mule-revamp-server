@@ -1,15 +1,10 @@
 const { userData } = require("../../repository/userData.js");
 
 module.exports = (req, res) => {
-	const { userId, userPassword } = req.body;
-
-
-    const cookieId = req.cookies.cookieId;
-    
-	console.log(cookieId)
+	const cookieId = req.cookies.cookieId;
 
 	const userInfo = {
-		...userData.filter((user) => user.userId === cookieId)[0],
+		...userData.filter((user) => user.id === cookieId)[0],
 	};
 
 	if (!cookieId || !userInfo.id) {

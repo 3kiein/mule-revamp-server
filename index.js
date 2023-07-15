@@ -10,9 +10,9 @@ app.use(express.json());
 app.use(cookieParser());
 
 const corsOptions = {
-  origin: "http://localhost:3000",
-  methods: ["GET", "POST", "OPTIONS"],
-  credential: true,
+	origin: "http://localhost:3000",
+	methods: ["GET", "POST", "OPTIONS"],
+	credentials: true,
 };
 app.use(cors(corsOptions));
 
@@ -20,5 +20,5 @@ const Router = require("./router/Router");
 app.use("/", Router);
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+	console.log(`Example app listening on port ${port}`);
 });
